@@ -14,4 +14,15 @@ class Servicio extends Model
         'descripcion',
         'precio',
     ];
+
+public function turnos()
+{
+    return $this->hasMany(Turno::class, 'servicio_id');
+}
+
+
+
+
+
+
 }

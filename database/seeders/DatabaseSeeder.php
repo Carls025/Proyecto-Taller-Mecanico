@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         // Otros seeders que quieras ejecutar primero
         $this->call([
         ServicioSeeder::class,
-        // UserSeeder::class,
+        UserSeeder::class,
         // AutomovilSeeder::class,
         // TurnoSeeder::class,
         ]);

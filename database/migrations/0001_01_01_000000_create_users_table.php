@@ -16,20 +16,24 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('telefono')->nullable(); // 👈 agregado
-            $table->enum('rol', ['admin', 'cliente'])->default('cliente'); // 👈 agregado
+
+            // Campos personalizados
+            $table->string('telefono')->nullable(); // Teléfono opcional
+            $table->enum('rol', ['admin', 'cliente'])->default('cliente'); // Rol por defecto: cliente
+
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-});
+        });
 
-
+        // Tabla para los tokens de recuperación de contraseña
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
 
+        // Tabla para sesiones (Laravel Breeze / autenticación)
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
@@ -45,8 +49,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('users');
     }
 };

@@ -6,8 +6,14 @@
     @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100 p-8">
-    <div class="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-6">
-       <h1 class="text-2xl font-bold mb-4">👤 Lista de Usuarios</h1>
+@extends('layouts.app')
+
+@section('title', 'Lista de Usuarios')
+
+@section('content')
+<div class="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-6">
+    <h1 class="text-2xl font-bold mb-4">👤 Lista de Usuarios</h1>
+    <!-- Aquí tu tabla/listado -->
 
 <a href="{{ url('/') }}" class="text-blue-500 hover:underline mb-4 inline-block">⬅ Volver al inicio</a>
 
@@ -44,5 +50,6 @@
 </table>
 
     </div>
+    @endsection
 </body>
 </html>

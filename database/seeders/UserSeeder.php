@@ -3,26 +3,36 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class UserSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     */
     public function run(): void
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('users')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        // 🔸 Usuario Administrador
+        User::updateOrCreate(
+            ['email' => 'admin@taller.local'],
+            [
+                'name' => 'Administrador del Taller',
+                'telefono' => '1111111111',
+                'rol' => 'admin',
+                'password' => Hash::make('admin123'),
+            ]
+        );
 
-        User::create([
-            'name' => 'Admin Taller',
-            'email' => 'admin@taller.local',
-            'telefono' => '0000-000000',
-            'rol' => 'admin',
-            'password' => Hash::make('secret123'),
-        ]);
-
-        User::factory()->count(10)->create();
+        // 🔹 Usuario Cliente
+        User::updateOrCreate(
+            ['email' => 'cliente@taller.local'],
+            [
+                'name' => 'Cliente de Prueba',
+                'telefono' => '2222222222',
+                'rol' => 'cliente',
+                'password' => Hash::make('cliente123'),
+            ]
+        );
     }
 }
