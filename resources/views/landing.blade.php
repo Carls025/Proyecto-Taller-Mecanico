@@ -32,9 +32,9 @@
     <nav class="w-full fixed top-0 left-0 flex justify-between items-center px-8 py-3 shadow-md">
         <!-- Logo -->
         <div class="flex items-center space-x-2">
-            <img src="{{ asset('images/logo-taller.jpg') }}" 
+            <img src="{{ asset('images/logo-taller2.png') }}" 
                  alt="Logo del Taller Mecánico"
-                 class="h-14 w-auto drop-shadow-lg">
+                 class="h-20 w-auto drop-shadow-lg">
             <span class="text-yellow-400 font-semibold text-lg hidden sm:inline">Taller Mecánico</span>
         </div>
 
