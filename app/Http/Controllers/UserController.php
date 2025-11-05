@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index()
-    {
-        $usuarios = User::all();
-        return view('usuarios.index', compact('usuarios'));
-    }
+{
+    $usuarios = \App\Models\User::all(); // obtiene todos los usuarios
+    return view('usuarios.index', compact('usuarios'));
+}
 
     public function create()
     {
